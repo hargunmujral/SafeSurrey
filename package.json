@@ -1,0 +1,19 @@
+{
+  "name": "safesurrey",
+  "version": "1.0.0",
+  "description": "This is a Discord Bot with the purpose of sending alerts for when there are attacks of violence in Surrey, with the goal of helping one keep their family and friends safe.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hargunmujral/SafeSurrey.git"
+  },
+  "author": "Hargun Mujral",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hargunmujral/SafeSurrey/issues"
+  },
+  "homepage": "https://github.com/hargunmujral/SafeSurrey#readme"
+}
