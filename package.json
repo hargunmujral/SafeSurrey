@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/hargunmujral/SafeSurrey/issues"
   },
-  "homepage": "https://github.com/hargunmujral/SafeSurrey#readme"
+  "homepage": "https://github.com/hargunmujral/SafeSurrey#readme",
+  "dependencies": {
+    "discord.js": "^13.6.0",
+    "dotenv": "^16.0.0"
+  }
 }
