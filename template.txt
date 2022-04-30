@@ -8,3 +8,5 @@ scraping off of a website that contains a catalogue of the headlines updating li
 to check for these keywords. In the case that none are present, we ignore the news article. In the case that 
 keyword(s) are present, we want to post a message in the Discord and embed the link. Many other features can be added
 but this is the high level overview of the bot's function.
+
+Looking at using the google news api but still need to look further into it
