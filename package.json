@@ -4,7 +4,8 @@
   "description": "This is a Discord Bot with the purpose of sending alerts for when there are attacks of violence in Surrey, with the goal of helping one keep their family and friends safe.",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.ts"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,7 @@
   "homepage": "https://github.com/hargunmujral/SafeSurrey#readme",
   "dependencies": {
     "discord.js": "^13.6.0",
-    "dotenv": "^16.0.0"
+    "dotenv": "^16.0.0",
+    "nodemon": "^2.0.16"
   }
 }
