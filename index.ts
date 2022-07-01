@@ -1,5 +1,6 @@
-import DiscordJS, { Intents, Interaction } from 'discord.js';
+import DiscordJS, { Intents, Interaction, Message } from 'discord.js';
 import dotenv from 'dotenv';
+import { Response } from './response';
 dotenv.config();
 
 const NewsAPI = require('newsapi');
@@ -61,11 +62,9 @@ function getNews() {
     date.setHours(date.getHours() - 1);
 
     newsapi.v2.everything({
-        q: query,
-        country: 'ca',
+       q: 'today',
         from: date.toISOString(),
-    
-    }).then((response: JSON) => {
+    }).then((response: Response) => {
         console.log(response);
     });
 }
@@ -74,6 +73,6 @@ client.login(process.env.TOKEN);
 
 const cron = require('node-cron');
 
-cron.schedule('0 * * * *', () => {
+cron.schedule('* * * * *', () => {
     getNews();
 });
