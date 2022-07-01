@@ -2,6 +2,9 @@ import DiscordJS, { Intents, Interaction } from 'discord.js';
 import dotenv from 'dotenv';
 dotenv.config();
 
+const NewsAPI = require('newsapi');
+const newsapi = new NewsAPI(process.env.NEWS_API_KEY);
+
 const client = new DiscordJS.Client({
     intents: [
         Intents.FLAGS.GUILDS,
@@ -48,5 +51,24 @@ client.on('messageCreate', (message) => {
         });
     }
 });
+
+const query = '(surrey OR guildford OR newton OR fleetwood OR Whalley)' +
+                ' AND (shoot OR shot OR kill OR gun OR murder OR rape OR' + 
+                'stab OR threaten OR assault OR attack OR die OR harrass)';
+
+function getNews() {
+    const date = new Date();
+    date.setHours(date.getHours() - 1);
+
+    newsapi.v2.everything({
+        q: query,
+        country: 'ca',
+        category: 'health',
+        from: date.toISOString(),
+    
+    }).then((response: JSON) => {
+        console.log(response);
+    });
+}
 
 client.login(process.env.TOKEN);
