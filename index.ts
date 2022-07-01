@@ -55,7 +55,7 @@ client.on('messageCreate', (message) => {
 
 const query = '(surrey OR guildford OR newton OR fleetwood OR whalley)' +
                 ' AND (shoot OR shot OR kill OR gun OR murder OR rape OR' + 
-                'stab OR threaten OR assault OR attack OR die OR harrass)';
+                'stab OR threaten OR assault OR attack OR die OR harass)';
 
 function getNews() {
     const date = new Date();
@@ -66,6 +66,12 @@ function getNews() {
         from: date.toISOString(),
     }).then((response: Response) => {
         console.log(response);
+        if(response.totalResults > 0){
+            // This is where we want to message into the
+            // discord channel that there's an article.
+            // We will post the url of the first element of the
+            // array of articles
+        }
     });
 }
 
