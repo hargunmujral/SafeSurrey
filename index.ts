@@ -55,16 +55,17 @@ client.on('messageCreate', (message) => {
     }
 });
 
-const query = '(surrey OR guildford OR newton OR fleetwood OR whalley)' +
+const query = '(surrey OR guildford OR newton OR fleetwood OR whalley OR delta)' +
                 ' AND (shoot OR shot OR kill OR gun OR murder OR rape OR' + 
-                'stab OR threaten OR assault OR attack OR die OR harass)';
+                'stab OR threaten OR assault OR attack OR die OR harass)' +
+                ' AND canada';
 
 function getNews() {
     const date = new Date();
     date.setHours(date.getHours() - 1);
 
     newsapi.v2.everything({
-       q: query,
+        q: query,
         from: date.toISOString(),
     }).then((response: Response) => {
         console.log(response);
