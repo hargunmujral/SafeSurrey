@@ -17,3 +17,4 @@ I have a lot of ideas on what I can do to improve this project, listed below:
 * Let the home city be configurable for anyone
 * Implement a mechanism to not allow repeat news stories
 * Maybe change the scope of the project to instead make it an email/sms service instead of a discord bot
+* Host on a remote server (probably docker -> docker hub -> digitalocean) 
