@@ -1,4 +1,4 @@
-import DiscordJS, { Intents, Interaction, Message } from 'discord.js';
+import DiscordJS, { Channel, Intents, Interaction, Message, TextChannel } from 'discord.js';
 import dotenv from 'dotenv';
 import { Response } from './response';
 dotenv.config();
@@ -13,11 +13,13 @@ const client = new DiscordJS.Client({
     ]
 });
 
+let channel : TextChannel;
+
 client.on('ready', () => {
     console.log('Ready!');
 
-    const guildID = '929889176097275924'
-    const guild = client.guilds.cache.get(guildID)
+    const guildID = process.env.GUILD_ID?.toString();
+    const guild = client.guilds.cache.get(guildID!);
     let commands 
         if(guild){
             commands = guild.commands
@@ -28,6 +30,7 @@ client.on('ready', () => {
         name: 'help',
         description: 'Displays all commands',
     })
+    channel = guild?.channels.cache.get(process.env.CHANNEL_ID?.toString()!) as TextChannel;
 });
 
  client.on('interactionCreate', async (interaction) => {
@@ -62,15 +65,12 @@ function getNews() {
     date.setHours(date.getHours() - 1);
 
     newsapi.v2.everything({
-       q: 'today',
+       q: query,
         from: date.toISOString(),
     }).then((response: Response) => {
-        console.log(response);
         if(response.totalResults > 0){
-            // This is where we want to message into the
-            // discord channel that there's an article.
-            // We will post the url of the first element of the
-            // array of articles
+            console.log(response);
+            channel.send(response.articles[0].url);
         }
     });
 }
@@ -79,6 +79,6 @@ client.login(process.env.TOKEN);
 
 const cron = require('node-cron');
 
-cron.schedule('* * * * *', () => {
+cron.schedule('0 * * * *', () => {
     getNews();
 });
