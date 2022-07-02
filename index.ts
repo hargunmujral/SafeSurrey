@@ -67,8 +67,8 @@ function getNews() {
        q: query,
         from: date.toISOString(),
     }).then((response: Response) => {
+        console.log(response);
         if(response.totalResults > 0){
-            console.log(response);
             channel.send(response.articles[0].url);
         }
     });
