@@ -17,7 +17,6 @@ let channel : TextChannel;
 
 client.on('ready', () => {
     console.log('Ready!');
-
     const guildID = process.env.GUILD_ID?.toString();
     const guild = client.guilds.cache.get(guildID!);
     let commands 
