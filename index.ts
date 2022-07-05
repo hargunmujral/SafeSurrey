@@ -66,12 +66,13 @@ function getNews() {
 
     newsapi.v2.everything({
         q: query,
+        searchIn: "title,description",
         from: date.toISOString(),
     }).then((response: Response) => {
         console.log(response);
-        if(response.totalResults > 0){
+       if(response.totalResults > 0){
             channel.send(response.articles[0].url);
-        }
+       }
     });
 }
 
