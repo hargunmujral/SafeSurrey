@@ -55,10 +55,9 @@ client.on('messageCreate', (message) => {
     }
 });
 
-const query = '(surrey OR guildford OR newton OR fleetwood OR whalley OR delta)' +
+const query = '(surrey OR delta)' +
                 ' AND (shoot OR shot OR kill OR gun OR murder OR rape OR' + 
-                'stab OR threaten OR assault OR attack OR die OR harass)' +
-                ' AND canada';
+                'stab OR threaten OR assault OR attack OR die OR harass)';
 
 function getNews() {
     const date = new Date();
