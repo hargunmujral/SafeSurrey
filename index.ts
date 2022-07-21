@@ -83,3 +83,11 @@ cron.schedule('0 * * * *', () => {
     getNews();
 });
 // command to run: npx ts-node index.ts
+
+// docker commands:
+
+// docker build hargunm/safesurrey:latest
+// docker run hargunm/safesurrey:latest
+// docker run -d --rm hargunm/safesurrey:latest
+
+// these can later be added to the readme and structured as is appropriate
