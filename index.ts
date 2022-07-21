@@ -55,7 +55,7 @@ client.on('messageCreate', (message) => {
     }
 });
 
-const query = '(surrey OR delta)' +
+const query = '(Surrey OR Delta)' +
                 ' AND (shoot OR shot OR kill OR gun OR murder OR rape OR' + 
                 'stab OR threaten OR assault OR attack OR die OR harass)';
 
@@ -82,3 +82,4 @@ const cron = require('node-cron');
 cron.schedule('0 * * * *', () => {
     getNews();
 });
+// command to run: npx ts-node index.ts
